@@ -6,6 +6,18 @@ from Tkinter import *
 #obj creation from tk class store it in root
 root = Tk() #blank window
 
+theLabel = Label(root, text="Hi there this is a label eh", fg = "red", bg="yellow")
+#by default the fill is wrap_content
+theLabel.pack()
+
+secondLabel = Label(root, text="Second label", fg = "green", bg="orange")
+#what fill x does is it stretches out content to parent size in x direction
+#this like match_parent in android studio
+secondLabel.pack(fill=X)
+
+thirdLabel = Label(root, text="last one", fg="blue", bg="purple")
+thirdLabel.pack(side = LEFT, fill=Y)
+
 # root.minsize(width="400", height= "400")
 
 #frames act like invisible containers
