@@ -1,48 +1,28 @@
 from Tkinter import *
 
-# need to build a basic window first
-# so that we know where to place widgets
+#using tkinter grid instead of just the pack func
 
-#obj creation from tk class store it in root
-root = Tk() #blank window
+root = Tk()
 
-theLabel = Label(root, text="Hi there this is a label eh", fg = "red", bg="yellow")
-#by default the fill is wrap_content
-theLabel.pack()
+theLabel = Label(root, text="Username")
+theEntry = Entry(root, text="Enter your username")
 
-secondLabel = Label(root, text="Second label", fg = "green", bg="orange")
-#what fill x does is it stretches out content to parent size in x direction
-#this like match_parent in android studio
-secondLabel.pack(fill=X)
 
-thirdLabel = Label(root, text="last one", fg="blue", bg="purple")
-thirdLabel.pack(side = LEFT, fill=Y)
+theLabel2 = Label(root, text="Password")
+theEntry2 = Entry(root, text="Password")
 
-# root.minsize(width="400", height= "400")
 
-#frames act like invisible containers
-topFrame = Frame(root)
-#to display frame: (anytime wanna display sth gotta pack
-#by default its packs at the top
-topFrame.pack()
+#Now using the grid to place items
+#sticky is like text-align
+# it takes the value N E S W for north south east west
+theLabel.grid(row=0, sticky=E)
+theLabel2.grid(row=1, sticky=E)
+theEntry.grid(row=0,column=1)
+theEntry2.grid(row=1, column=1)
 
-bottomFrame = Frame(root)
-#we wanna specify where we pack the bottomFrame in our window
-bottomFrame.pack(side=BOTTOM)
+checkBox = Checkbutton(root, text="Keep me signed in")
+#so that the checkbox takes two column spaces
+checkBox.grid(columnspan=2)
 
-#putting some widgets in there
-firstButton = Button(topFrame, text="Click here", fg = "green")
-secondButton = Button(topFrame, text="Click here", fg = "red")
-thirdButton = Button(topFrame, text="Click here", fg = "blue")
-fourthButton = Button(bottomFrame, text="Click here", fg = "yellow")
 
-#by default things get packed on top of each other
-firstButton.pack(side = LEFT)
-secondButton.pack(side = LEFT)
-thirdButton.pack(side = LEFT)
-fourthButton.pack(side = TOP)
-
-#need mainloop to run the program till the user closes it
-#so it gives us time to actually view it
 root.mainloop()
-
