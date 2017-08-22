@@ -1,6 +1,6 @@
 from Tkinter import *
 
-#Making toolbars
+#Making statusbar
 
 def doSomething():
     print("Something")
@@ -36,4 +36,14 @@ printButton = Button(toolbar, text="Print Image", command=doSomething)
 printButton.pack(side=LEFT, padx=2, pady=2)
 
 toolbar.pack(side=TOP, fill=X)
+
+#======================================================================#
+#Statusbar
+#
+status = Label(root, text = "Display Static text status", bd=1, relief=SUNKEN, anchor=W)
+status.pack(side=BOTTOM, fill=X)
+
 root.mainloop()
+
+
+
