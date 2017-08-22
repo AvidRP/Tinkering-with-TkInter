@@ -1,24 +1,28 @@
 from Tkinter import *
 
-#Using classes
+#Drop down menus
 
-class Buttons:
-    #automatically runs this function
-    def __init__(self, master):
-        frame = Frame(master, width=400, height=400)
-        frame.pack()
-
-        self.printButton = Button(frame, text="Print Message", command=self.printMessage)
-        self.printButton.pack(side=LEFT)
-
-        self.quitButton = Button(frame, text="Quit", command=frame.quit)
-        self.quitButton.pack(side=LEFT)
-
-    def printMessage(self):
-        print("MESSAGE!")
+def doSomething():
+    print("Something")
 
 root = Tk()
 
-b=Buttons(root)
+#making the actual menu bar that goes into the root window
+menu = Menu(root)
+#configuring the menu
+root.config(menu=menu)
+
+#Titles within the menu bar
+subMenu = Menu(menu)
+menu.add_cascade(label="File", menu=subMenu)
+
+#Adding stuff to the drop down menu
+subMenu.add_command(label="New Project...", command=doSomething)
+subMenu.add_separator()
+subMenu.add_command(label="New..", command=doSomething)
+
+editMenu = Menu(menu)
+menu.add_cascade(labe="Edit", menu=editMenu)
+editMenu.add_command(label="Edit...")
 
 root.mainloop()
