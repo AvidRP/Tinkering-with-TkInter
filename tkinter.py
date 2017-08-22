@@ -1,6 +1,6 @@
 from Tkinter import *
 
-#Drop down menus
+#Making toolbars
 
 def doSomething():
     print("Something")
@@ -25,4 +25,15 @@ editMenu = Menu(menu)
 menu.add_cascade(labe="Edit", menu=editMenu)
 editMenu.add_command(label="Edit...")
 
+#======================================================================#
+#Toolbar
+
+toolbar = Frame(root)
+insertButton = Button(toolbar, text="Insert Image", command=doSomething)
+insertButton.pack(side=LEFT, padx=2, pady=2)
+
+printButton = Button(toolbar, text="Print Image", command=doSomething)
+printButton.pack(side=LEFT, padx=2, pady=2)
+
+toolbar.pack(side=TOP, fill=X)
 root.mainloop()
